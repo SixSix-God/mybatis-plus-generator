@@ -4,12 +4,11 @@ import com.ntm.generator.orm.entity.Country;
 import com.ntm.generator.orm.mapper.CountryMapper;
 import com.ntm.generator.orm.service.ICountryService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -21,7 +20,7 @@ import java.util.List;
  * @author ntm
  * @since 2020-09-01
  */
-
+@Slf4j
 @Service
 public class CountryServiceImpl extends ServiceImpl<CountryMapper, Country> implements ICountryService {
 

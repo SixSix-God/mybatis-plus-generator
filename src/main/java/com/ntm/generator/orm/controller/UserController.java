@@ -2,10 +2,10 @@ package com.ntm.generator.orm.controller;
 
 import com.ntm.generator.orm.entity.User;
 import com.ntm.generator.orm.service.IUserService ;
+import com.ntm.generator.util.BaseResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.List;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 
 
@@ -56,11 +56,9 @@ public class UserController {
     * @return
     */
     @RequestMapping("/list")
-    public Object list() {
+    public BaseResponse list() {
         User model = new  User();
-        List<User> list =  userService.list(model);
-        // todo 再包装一层
-        return list;
+        return userService.list(model);
     }
 
 

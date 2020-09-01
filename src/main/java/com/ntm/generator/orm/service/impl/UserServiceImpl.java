@@ -4,14 +4,13 @@ import com.ntm.generator.orm.entity.User;
 import com.ntm.generator.orm.mapper.UserMapper;
 import com.ntm.generator.orm.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ntm.generator.util.BaseResponse;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * <p>
@@ -21,15 +20,26 @@ import java.util.List;
  * @author ntm
  * @since 2020-09-01
  */
-
+@Slf4j
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
+    @Autowired
+    public UserMapper userMapper;
 
     @Override
-    public List<User> list(User model) {
+    public BaseResponse list(User model) {
        QueryWrapper<User> wrapper = new QueryWrapper();
-       return super.list(wrapper);
+       BaseResponse response = new BaseResponse();
+       try{
+           response.ok(userMapper.list(model));
+           log.info("SUCCESS!");
+       }catch (Exception ex)
+       {
+           response.fail(ex.toString(),userMapper.list(model));
+           log.error(ex.toString());
+       }
+       return response;
     }
 
     @Override

@@ -4,9 +4,9 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ntm.generator.orm.entity.Country">
-        <id column="id" property="id" jdbcType="int(5)"/>
-        <result column="country" property="country" jdbcType="varchar(10)"/>
-        <result column="people" property="people" jdbcType="varchar(20)"/>
+        <id column="id" property="id" javaType="INTEGER"/>
+        <result column="country" property="country" javaType="string"/>
+        <result column="people" property="people" javaType="string"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->

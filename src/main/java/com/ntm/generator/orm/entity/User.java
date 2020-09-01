@@ -1,10 +1,11 @@
 package com.ntm.generator.orm.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
+
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -23,7 +24,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("orm_user")
-@ApiModel(value="User对象", description="Spring Boot Demo Orm 系列示例表")
+@ApiModel(value="user对象", description="")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -51,13 +52,13 @@ public class User implements Serializable {
     private Integer status;
 
     @ApiModelProperty(value = "创建时间")
-    private LocalDateTime createTime;
+    private Date createTime;
 
     @ApiModelProperty(value = "上次登录时间")
-    private LocalDateTime lastLoginTime;
+    private Date lastLoginTime;
 
     @ApiModelProperty(value = "上次更新时间")
-    private LocalDateTime lastUpdateTime;
+    private Date lastUpdateTime;
 
 
 }

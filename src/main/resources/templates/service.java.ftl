@@ -4,6 +4,7 @@ import ${package.Entity}.${entity};
 import ${superServiceClassPackage};
 import java.util.List;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import org.springframework.stereotype.Service;
 
 /**
 * <p>
@@ -14,7 +15,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 * @since ${date}
 */
 
-
+@Service
 public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
 
    /**

@@ -4,6 +4,7 @@ import com.ntm.generator.orm.entity.Country;
 import com.baomidou.mybatisplus.extension.service.IService;
 import java.util.List;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import org.springframework.stereotype.Service;
 
 /**
 * <p>
@@ -14,7 +15,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 * @since 2020-09-01
 */
 
-
+@Service
 public interface ICountryService extends IService<Country> {
 
    /**

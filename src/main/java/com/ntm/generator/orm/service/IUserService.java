@@ -2,8 +2,9 @@ package com.ntm.generator.orm.service;
 
 import com.ntm.generator.orm.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
-import java.util.List;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.ntm.generator.util.BaseResponse;
+import org.springframework.stereotype.Service;
 
 /**
 * <p>
@@ -14,7 +15,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 * @since 2020-09-01
 */
 
-
+@Service
 public interface IUserService extends IService<User> {
 
    /**
@@ -23,7 +24,7 @@ public interface IUserService extends IService<User> {
    * @param model
    * @return
    */
-   List<User> list(User model);
+   BaseResponse list(User model);
 
     /**
     * 分页查询

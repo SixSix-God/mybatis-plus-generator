@@ -1,0 +1,12 @@
+16:52:05.993 [main] INFO  com.ntm.generator.MybatisPlusGeneratorApplication logStarting 50 - Starting MybatisPlusGeneratorApplication on pc-wh1909030 with PID 10260 (G:\fly1\mybatis-plus-generator\target\classes started by WH1909030 in G:\fly1\mybatis-plus-generator)
+16:52:06.045 [main] INFO  com.ntm.generator.MybatisPlusGeneratorApplication logStartupProfileInfo 646 - No active profile set, falling back to default profiles: default
+16:52:11.827 [main] INFO  org.apache.coyote.http11.Http11NioProtocol log 173 - Initializing ProtocolHandler ["http-nio-8080"]
+16:52:11.846 [main] INFO  org.apache.catalina.core.StandardService log 173 - Starting service [Tomcat]
+16:52:11.847 [main] INFO  org.apache.catalina.core.StandardEngine log 173 - Starting Servlet engine: [Apache Tomcat/9.0.21]
+16:52:12.254 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log 173 - Initializing Spring embedded WebApplicationContext
+16:52:12.452 [main] INFO  com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure dataSource 56 - Init DruidDataSource
+16:52:12.721 [main] INFO  com.alibaba.druid.pool.DruidDataSource init 971 - {dataSource-1} inited
+16:52:15.262 [main] INFO  org.apache.coyote.http11.Http11NioProtocol log 173 - Starting ProtocolHandler ["http-nio-8080"]
+16:52:15.316 [main] INFO  com.ntm.generator.MybatisPlusGeneratorApplication logStarted 59 - Started MybatisPlusGeneratorApplication in 11.062 seconds (JVM running for 13.31)
+16:52:21.000 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log 173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:52:21.302 [http-nio-8080-exec-1] INFO  com.ntm.generator.orm.service.impl.UserServiceImpl list 36 - SUCCESS!

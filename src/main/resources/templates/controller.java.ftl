@@ -1,39 +1,82 @@
 package ${package.Controller};
 
-
+import ${package.Entity}.${entity};
+import ${package.Service}.${table.serviceName} ;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-<#if restControllerStyle>
 import org.springframework.web.bind.annotation.RestController;
-<#else>
-import org.springframework.stereotype.Controller;
-</#if>
-<#if superControllerClassPackage??>
-import ${superControllerClassPackage};
-</#if>
+import java.util.List;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+
 
 /**
- * <p>
- * ${table.comment!} 前端控制器
- * </p>
- *
- * @author ${author}
- * @since ${date}
- */
-<#if restControllerStyle>
+* $!{table.comment} 前端控制器
+* @author ${author}
+* @since ${date}
+*/
+
+
 @RestController
-<#else>
-@Controller
-</#if>
-@RequestMapping("<#if package.ModuleName??>/${package.ModuleName}</#if>/<#if controllerMappingHyphenStyle??>${controllerMappingHyphen}<#else>${table.entityPath}</#if>")
-<#if kotlin>
-class ${table.controllerName}<#if superControllerClass??> : ${superControllerClass}()</#if>
-<#else>
-<#if superControllerClass??>
-public class ${table.controllerName} extends ${superControllerClass} {
-<#else>
+@RequestMapping("/${table.entityPath}" )
 public class ${table.controllerName} {
-</#if>
+
+    @Autowired
+    private ${table.serviceName}  ${table.entityPath}Service;
+
+    /**
+    * 保存
+    *
+    * @param model
+    * @return
+    */
+    @RequestMapping("/save")
+    public Object save(${entity} model) {
+        ${table.entityPath}Service.save(model);
+        return "success";
+    }
+
+
+    /**
+    * 查询详情
+    *
+    * @param id
+    * @return
+    */
+    @RequestMapping("/getById")
+    public Object getById(Integer id) {
+     ${entity} model = ${table.entityPath}Service.getById(id);
+        // todo 再包装一层
+        return model;
+    }
+
+
+    /**
+    * 列表查询（非分页）
+    *
+    * @return
+    */
+    @RequestMapping("/list")
+    public Object list() {
+        ${entity} model = new  ${entity}();
+        List<${entity}> list =  ${table.entityPath}Service.list(model);
+        // todo 再包装一层
+        return list;
+    }
+
+
+    /**
+    * 列表查询（分页）
+    *
+    * @return
+    */
+    @RequestMapping("/pageList")
+    public Object pageList(Integer pageNum, Integer pageSize) {
+
+        ${entity} model = new  ${entity}();
+        IPage<${entity}> page = ${table.entityPath}Service.pageList(model, pageNum, pageSize);
+        // todo 再包装一层
+        return page;
+    }
 
 }
-</#if>
+

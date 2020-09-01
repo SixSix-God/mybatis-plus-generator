@@ -4,14 +4,13 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ntm.generator.orm.entity.Country">
-        <id column="id" property="id" />
-        <result column="country" property="country" />
-        <result column="people" property="people" />
+        <id column="id" property="id" jdbcType="int(5)"/>
+        <result column="country" property="country" jdbcType="varchar(10)"/>
+        <result column="people" property="people" jdbcType="varchar(20)"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id, country, people
     </sql>
-
 </mapper>

@@ -4,21 +4,20 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ntm.generator.orm.entity.User">
-        <id column="id" property="id" />
-        <result column="name" property="name" />
-        <result column="password" property="password" />
-        <result column="salt" property="salt" />
-        <result column="email" property="email" />
-        <result column="phone_number" property="phoneNumber" />
-        <result column="status" property="status" />
-        <result column="create_time" property="createTime" />
-        <result column="last_login_time" property="lastLoginTime" />
-        <result column="last_update_time" property="lastUpdateTime" />
+        <id column="id" property="id" jdbcType="int(11)"/>
+        <result column="name" property="name" jdbcType="varchar(32)"/>
+        <result column="password" property="password" jdbcType="varchar(32)"/>
+        <result column="salt" property="salt" jdbcType="varchar(32)"/>
+        <result column="email" property="email" jdbcType="varchar(32)"/>
+        <result column="phone_number" property="phoneNumber" jdbcType="varchar(15)"/>
+        <result column="status" property="status" jdbcType="int(2)"/>
+        <result column="create_time" property="createTime" jdbcType="datetime"/>
+        <result column="last_login_time" property="lastLoginTime" jdbcType="datetime"/>
+        <result column="last_update_time" property="lastUpdateTime" jdbcType="datetime"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id, name, password, salt, email, phone_number, status, create_time, last_login_time, last_update_time
     </sql>
-
 </mapper>

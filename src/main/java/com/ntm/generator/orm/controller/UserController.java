@@ -1,12 +1,13 @@
 package com.ntm.generator.orm.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ntm.generator.orm.entity.User;
 import com.ntm.generator.orm.service.IUserService ;
 import com.ntm.generator.util.BaseResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 
 
 /**
@@ -43,10 +44,11 @@ public class UserController {
     * @return
     */
     @RequestMapping("/getById")
-    public Object getById(Integer id) {
-     User model = userService.getById(id);
+    public BaseResponse getById(Integer id) {
+        BaseResponse response = new BaseResponse();
+        response.ok(userService.getById(id));
         // todo 再包装一层
-        return model;
+        return response;
     }
 
 
@@ -69,9 +71,8 @@ public class UserController {
     */
     @RequestMapping("/pageList")
     public Object pageList(Integer pageNum, Integer pageSize) {
-
-        User model = new  User();
-        return userService.pageList(model, pageNum, pageSize);
+        QueryWrapper<User> wrapper = new QueryWrapper(new User());
+        return userService.page(new Page(pageNum,pageSize),wrapper);
     }
 
 }

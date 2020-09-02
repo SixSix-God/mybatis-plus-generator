@@ -41,17 +41,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements IUs
        return response;
     }
 
-    @Override
-    public Object pageList( User model, Integer pageNum, Integer pageSize) {
-
-        Page page = new Page(pageNum,pageSize);
-        try {
-            return userMapper.selectPage(page,null);
-        }catch (Exception ex){
-            log.error(ex.toString());
-            return ex.toString();
-        }
-    }
+//    @Override
+//    public Object pageList( User model, Integer pageNum, Integer pageSize) {
+//
+//        Page page = new Page(pageNum,pageSize);
+//        try {
+//            return userMapper.selectPage(page,null);
+//        }catch (Exception ex){
+//            log.error(ex.toString());
+//            return ex.toString();
+//        }
+//    }
 
 }
 

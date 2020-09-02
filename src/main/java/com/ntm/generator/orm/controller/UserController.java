@@ -71,9 +71,7 @@ public class UserController {
     public Object pageList(Integer pageNum, Integer pageSize) {
 
         User model = new  User();
-        IPage<User> page = userService.pageList(model, pageNum, pageSize);
-        // todo 再包装一层
-        return page;
+        return userService.pageList(model, pageNum, pageSize);
     }
 
 }

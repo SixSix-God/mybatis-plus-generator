@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-
 /**
  * <p>
  * $!{table.comment} 服务实现类
@@ -22,10 +21,10 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
  */
 @Slf4j
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements IUserService {
 
     @Autowired
-    public UserMapper userMapper;
+    private UserMapper userMapper;
 
     @Override
     public BaseResponse list(User model) {
@@ -43,12 +42,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     @Override
-    public IPage<User> pageList( User model, Integer pageNum, Integer pageSize) {
+    public Object pageList( User model, Integer pageNum, Integer pageSize) {
 
-       QueryWrapper<User> wrapper = new QueryWrapper(model);
-       return this.page(new Page<>(pageNum, pageSize), wrapper);
+        Page page = new Page(pageNum,pageSize);
+        try {
+            return userMapper.selectPage(page,null);
+        }catch (Exception ex){
+            log.error(ex.toString());
+            return ex.toString();
+        }
     }
-
 
 }
 

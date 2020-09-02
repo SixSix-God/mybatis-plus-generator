@@ -2,6 +2,7 @@ package com.ntm.generator.orm.mapper;
 
 import com.ntm.generator.orm.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
  * @since 2020-09-01
  */
 @Repository
+@Mapper
 public interface UserMapper extends BaseMapper<User> {
 
     List<User> list(User user);

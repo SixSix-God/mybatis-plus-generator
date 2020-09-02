@@ -34,7 +34,7 @@ public interface IUserService extends IService<User> {
     * @param pageSize 每页数量
     * @return
     */
-    IPage<User> pageList(User model, Integer pageNum, Integer pageSize);
+    Object pageList(User model, Integer pageNum, Integer pageSize);
 
 }
 

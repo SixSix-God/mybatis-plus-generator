@@ -71,8 +71,10 @@ public class UserController {
     */
     @RequestMapping("/pageList")
     public Object pageList(Integer pageNum, Integer pageSize) {
+        BaseResponse response = new BaseResponse();
         QueryWrapper<User> wrapper = new QueryWrapper(new User());
-        return userService.page(new Page(pageNum,pageSize),wrapper);
+        response.ok(userService.page(new Page(pageNum,pageSize),wrapper).getRecords());
+        return response;
     }
 
 }
